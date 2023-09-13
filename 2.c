@@ -1,19 +1,23 @@
 #include <stdio.h>
-int power(int n1, int n2);
-int main() {
-    int base, a, result;
-    printf("Enter base number: ");
-    scanf("%d", &base);
-    printf("Enter power number(positive integer): ");
-    scanf("%d", &a);
-    result = power(base, a);
-    printf("%d^%d = %d", base, a, result);
-    return 0;
+int string_length(char *s, int x);
+
+int main(void)
+{
+    int length = 0, x;
+    char string[] = "This is a string";
+
+    x = string_length(string, length); 
+    printf("The length of the string will be: %d\n", x);
+    return (0);
 }
 
-int power(int base, int a) {
-    if (a != 0)
-        return (base * power(base, a - 1));
-    else
-        return 1;
+int string_length(char *c, int x)
+{
+    int a = 0;
+    if (*c != '\0')
+    {
+        a = a + 1;
+        string_length(c + 1, x + 1);
+    }
+    return (a);
 }
